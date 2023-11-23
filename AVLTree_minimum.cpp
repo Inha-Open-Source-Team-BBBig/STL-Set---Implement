@@ -32,14 +32,17 @@ int AVLTree::minimum() {
     return minimum(root, depth);
 }
 
-int AVLTree::minimum(NodePointer x, int &depth) {
+
+// AVLTree에서 최솟값을 출력 및 리턴하는 함수
+// 최솟값이 존재하는 왼쪽 노드까지 파고들게 구현 진행
+int AVLTree::minimum(NodePointer curNode, int &depth) {
     depth = 0;
 
-    while (x->left != nullptr) {
-        x = x->left;
+    while (curNode->left != nullptr) {
+        curNode = curNode->left;
         depth++;
     }
 
-    std::cout << x->key << " " << depth << std::endl;
-    return x->key;
+    std::cout << curNode->key << " " << depth << std::endl;
+    return curNode->key;
 }
