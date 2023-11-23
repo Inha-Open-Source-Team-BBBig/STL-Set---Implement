@@ -34,14 +34,16 @@ int AVLTree::maximum() {
     return maximum(root, depth);
 }
 
-int AVLTree::maximum(NodePointer x, int &depth) {
+// AVLTree에서 최댓값을 출력 및 리턴하는 함수
+// 최댓값이 존재하는 오른쪽 노드까지 파고들게 구현 진행
+int AVLTree::maximum(NodePointer curNode, int &depth) {
     depth = 0;
 
-    while (x->right != nullptr) {
-        x = x->right;
+    while (curNode->right != nullptr) {
+        curNode = curNode->right;
         depth++;
     }
 
-    std::cout << x->key << " " << depth << std::endl;
-    return x->key;
+    std::cout << curNode->key << " " << depth << std::endl;
+    return curNode->key;
 }
