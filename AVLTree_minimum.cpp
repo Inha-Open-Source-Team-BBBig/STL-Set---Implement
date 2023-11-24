@@ -27,22 +27,13 @@ Created by 주시현 on 11/20/21.
 #include "AVLTree.h"
 #include <iostream>
 
-int AVLTree::minimum() {
-    int depth;
-    return minimum(root, depth);
-}
+void AVLTree::minimum(int key) {
+    NodePointer currentNode = findWithoutPrint(key);
 
-
-// AVLTree에서 최솟값을 출력 및 리턴하는 함수
-// 최솟값이 존재하는 왼쪽 노드까지 파고들게 구현 진행
-int AVLTree::minimum(NodePointer curNode, int &depth) {
-    depth = 0;
-
-    while (curNode->left != nullptr) {
-        curNode = curNode->left;
-        depth++;
+    while (currentNode->left != nullptr) {
+        currentNode = currentNode->left;
     }
 
-    std::cout << curNode->key << " " << depth << std::endl;
-    return curNode->key;
+    std::cout << currentNode->key << " ";
+    find(currentNode->key);
 }
