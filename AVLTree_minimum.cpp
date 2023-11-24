@@ -27,6 +27,8 @@ Created by 주시현 on 11/20/21.
 #include "AVLTree.h"
 #include <iostream>
 
+
+// AVLTree에서 특정키를 기준으로 하여 최솟값을 출력 및 리턴하는 함수
 void AVLTree::minimum(int key) {
     NodePointer currentNode = findWithoutPrint(key);
 
